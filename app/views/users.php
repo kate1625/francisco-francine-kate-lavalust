@@ -6,13 +6,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f4f6f8;
+            background: #FDE8D3;
             padding: 40px;
         }
 
         h2 {
             text-align: center;
-            color: #333;
+            color: #657166;
         }
 
         table {
@@ -20,23 +20,23 @@
             margin: auto;
             border-collapse: collapse;
             background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(101,113,102,0.15);
         }
 
         th {
-            background: #2c3e50;
-            color: white;
+            background: #99CDD8;
+            color: #657166;
             padding: 12px;
         }
 
         td {
             padding: 10px;
             text-align: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #DAEBE3;
         }
 
         tr:hover {
-            background: #f1f1f1;
+            background: #CFDBC4;
         }
     </style>
 
