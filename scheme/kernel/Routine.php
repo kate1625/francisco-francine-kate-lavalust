@@ -70,15 +70,16 @@ if ( ! function_exists('load_class'))
 
 				require_once $dir_path . $file;
 
-				// Find the actual class name in a case-insensitive way
-				$match = null;
-				foreach (get_declared_classes() as $declared_class) {
-					if (strcasecmp($declared_class, $class) === 0) {
-						$match = $declared_class;
-						break;
-					}
-				}
+				// Find the actual class name
+$match = null;
 
+if (class_exists($class, false)) {
+    $match = $class;
+}
+
+if ($match === null) {
+    throw new RuntimeException("Class '{$class}' not found in file '{$file}'.");
+}
 				if ($match === null) {
 					throw new RuntimeException("Class '{$class}' not found in file '{$file}'.");
 				}

@@ -6,4 +6,4 @@ COPY . /app
 ENV PORT=10000
 EXPOSE 10000
 
-CMD php -S 0.0.0.0:${PORT} -t public public/index.php
+CMD php -S 0.0.0.0:${PORT} -t public public/index.phps

@@ -14,7 +14,7 @@
             justify-content: center;
         }
         .card {
-            background: #fff;
+            background: #ffffff;
             padding: 50px 40px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
