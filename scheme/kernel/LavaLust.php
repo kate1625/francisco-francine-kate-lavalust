@@ -194,6 +194,8 @@ require_once SYSTEM_DIR . 'kernel/Controller.php';
  */
 $router = load_class('router', 'kernel', array(new Controller));
 
+
+
 lava_instance()->router = $router;
 
 require_once APP_DIR . 'config/routes.php';
@@ -235,7 +237,9 @@ if (php_sapi_name() === 'cli') {
     $method = 'GET';
     
 } else {
-    $url = $router->sanitize_url(str_replace($_SERVER['SCRIPT_NAME'], '', $_SERVER['PHP_SELF']));
+    $base  = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+	$path  = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+	$url   = $router->sanitize_url(substr($path, strlen($base)) ?: '/');
     $method = isset($_SERVER['REQUEST_METHOD']) ? strtoupper($_SERVER['REQUEST_METHOD']) : 'GET';
 }
 

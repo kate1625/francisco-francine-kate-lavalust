@@ -99,7 +99,7 @@ $config['proxy_enabled']           = FALSE;
 | variable to blank.
 |
 */
-$config['index_page']               = 'index.php';
+$config['index_page']               = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -348,4 +348,19 @@ $config['csrf_token_name']         = 'csrf_test_name';
 $config['csrf_cookie_name']        = 'csrf_cookie_name';
 $config['csrf_expire']             = 7200;
 $config['csrf_regenerate']         = FALSE;
+
+/*
+|--------------------------------------------------------------------------
+| Middlewares
+|--------------------------------------------------------------------------
+|
+| Register your middleware classes here so they can be referenced by name
+| in your routes.
+|
+*/
+require_once APP_DIR . 'middlewares/StudentMiddleware.php';
+
+$config['middlewares'] = [
+    'StudentMiddleware' => new StudentMiddleware()
+];
 ?>
