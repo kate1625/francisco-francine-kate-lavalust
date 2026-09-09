@@ -1,23 +1,147 @@
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background: #FDE8D3;
+    margin: 0;
+    padding: 30px;
+    color: #657166;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: #DAEBE3;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(101,113,102,0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #657166;
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 5px;
+    background: white;
+    color: #657166;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #99CDD8;
+}
+
+
+.save-btn {
+    width: 100%;
+    background: #CFD8C4;
+    color: #657166;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.save-btn:hover {
+    background: #99CDD8;
+}
+
+
+.back-btn {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    background: #F3C3B2;
+    color: #657166;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+
+</style>
+
+
+<div class="container">
+
 <h2>Add Product</h2>
+
 
 <form method="POST" action="/products/store">
 
-    <label>Product Name</label><br>
-    <input type="text" name="product_name" required>
-    <br><br>
 
-    <label>Description</label><br>
-    <textarea name="description" required></textarea>
-    <br><br>
+<label>Product Name</label>
+<br>
 
-    <label>Price</label><br>
-    <input type="number" name="price" required>
-    <br><br>
+<input type="text" 
+       name="product_name"
+       placeholder="Enter product name"
+       required>
 
-    <label>Quantity</label><br>
-    <input type="number" name="quantity" required>
-    <br><br>
+<br><br>
 
-    <button type="submit">Save Product</button>
+
+<label>Description</label>
+<br>
+
+<textarea name="description"
+          placeholder="Enter description"
+          required></textarea>
+
+<br><br>
+
+
+<label>Price</label>
+<br>
+
+<input type="number"
+       name="price"
+       placeholder="Enter price"
+       required>
+
+<br><br>
+
+
+<label>Quantity</label>
+<br>
+
+<input type="number"
+       name="quantity"
+       placeholder="Enter quantity"
+       required>
+
+<br><br>
+
+
+<button class="save-btn" type="submit">
+    Save Product
+</button>
+
+
+<a class="back-btn" href="/products">
+    Back to Product List
+</a>
+
 
 </form>
+
+</div>
