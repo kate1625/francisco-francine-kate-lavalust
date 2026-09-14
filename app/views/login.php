@@ -66,11 +66,11 @@ button {
 <form method="POST" action="/login">
 
 <label>Username</label>
-<input type="text" name="username" value="admin" autocomplete="username" required>
+<input type="text" name="username" autocomplete="username" required>
 
 
 <label>Password</label>
-<input id="password" type="password" name="password" value="admin123" autocomplete="current-password" required>
+<input id="password" type="password" name="password" autocomplete="current-password" required>
 
 <label class="show-password">
     <input id="show-password" type="checkbox">
