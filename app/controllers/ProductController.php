@@ -59,7 +59,8 @@ class ProductController extends Controller
 
         $this->ProductModel->delete($id);
 
-        redirect('/products');
+        header('Location: ' . site_url('/products'), true, 302);
+        exit();
     }
 
     private function product_data()
