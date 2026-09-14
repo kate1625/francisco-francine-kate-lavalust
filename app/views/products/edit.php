@@ -87,7 +87,7 @@ textarea {
 <br>
 <input type="text" 
        name="product_name"
-       value="<?= $product['product_name'] ?>"
+    value="<?= htmlspecialchars($product['product_name'], ENT_QUOTES, 'UTF-8') ?>"
        required>
 
 <br><br>
@@ -96,7 +96,7 @@ textarea {
 <label>Description</label>
 <br>
 
-<textarea name="description" required><?= $product['description'] ?></textarea>
+<textarea name="description" required><?= htmlspecialchars($product['description'], ENT_QUOTES, 'UTF-8') ?></textarea>
 
 
 <br><br>

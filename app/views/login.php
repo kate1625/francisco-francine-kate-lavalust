@@ -45,6 +45,10 @@ button {
 
 <h2>Login</h2>
 
+<?php if (!empty($error)): ?>
+    <p style="color: #a33;" role="alert"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
+<?php endif; ?>
+
 <form method="POST" action="/login">
 
 <label>Username</label>

@@ -8,4 +8,11 @@ class UsersModel extends Model
     {
         return $this->db->table('users')->get_all();
     }
+
+    public function find_by_username($username)
+    {
+        return $this->db->table('users')
+                        ->where('username', $username)
+                        ->get();
+    }
 }

@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
@@ -22,12 +22,7 @@ class ProductController extends Controller
     {
         $this->call->model('ProductModel');
 
-        $data = [
-            'product_name' => $_POST['product_name'],
-            'description'  => $_POST['description'],
-            'price'        => $_POST['price'],
-            'quantity'     => $_POST['quantity']
-        ];
+        $data = $this->product_data();
 
         $this->ProductModel->create($data);
 
@@ -40,6 +35,10 @@ class ProductController extends Controller
 
         $data['product'] = $this->ProductModel->find($id);
 
+        if (!$data['product']) {
+            redirect('/products');
+        }
+
         $this->call->view('products/edit', $data);
     }
 
@@ -47,12 +46,7 @@ class ProductController extends Controller
     {
         $this->call->model('ProductModel');
 
-        $data = [
-            'product_name' => $_POST['product_name'],
-            'description'  => $_POST['description'],
-            'price'        => $_POST['price'],
-            'quantity'     => $_POST['quantity']
-        ];
+        $data = $this->product_data();
 
         $this->ProductModel->update($id, $data);
 
@@ -66,5 +60,15 @@ class ProductController extends Controller
         $this->ProductModel->delete($id);
 
         redirect('/products');
+    }
+
+    private function product_data()
+    {
+        return [
+            'product_name' => trim($_POST['product_name'] ?? ''),
+            'description'  => trim($_POST['description'] ?? ''),
+            'price'        => number_format((float) ($_POST['price'] ?? 0), 2, '.', ''),
+            'quantity'     => max(0, (int) ($_POST['quantity'] ?? 0)),
+        ];
     }
 }

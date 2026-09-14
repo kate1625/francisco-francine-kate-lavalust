@@ -76,9 +76,16 @@ tr:hover {
 
 <div class="container">
 
-<a href="/products/create" class="add-btn">
-    + Add Product
-</a>
+<div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+    <span>Signed in as <?= htmlspecialchars($_SESSION['user']['username'] ?? 'User', ENT_QUOTES, 'UTF-8') ?></span>
+    <a href="/logout">Logout</a>
+</div>
+
+<?php if (($_SESSION['user']['role'] ?? 'user') !== 'user'): ?>
+    <a href="/products/create" class="add-btn">
+        + Add Product
+    </a>
+<?php endif; ?>
 
 <h2>Product List</h2>
 
@@ -90,7 +97,9 @@ tr:hover {
     <th>Description</th>
     <th>Price</th>
     <th>Quantity</th>
-    <th>Actions</th>
+    <?php if (($_SESSION['user']['role'] ?? 'user') !== 'user'): ?>
+        <th>Actions</th>
+    <?php endif; ?>
 </tr>
 
 <?php foreach($products as $product): ?>
@@ -99,14 +108,15 @@ tr:hover {
 
     <td><?= $product['id'] ?></td>
 
-    <td><?= $product['product_name'] ?></td>
+    <td><?= htmlspecialchars($product['product_name'], ENT_QUOTES, 'UTF-8') ?></td>
 
-    <td><?= $product['description'] ?></td>
+    <td><?= htmlspecialchars($product['description'], ENT_QUOTES, 'UTF-8') ?></td>
 
     <td>₱<?= number_format($product['price'],2) ?></td>
 
     <td><?= $product['quantity'] ?></td>
 
+    <?php if (($_SESSION['user']['role'] ?? 'user') !== 'user'): ?>
     <td>
 
         <a class="edit-btn" href="/products/edit/<?= $product['id'] ?>">
@@ -120,6 +130,7 @@ tr:hover {
         </a>
 
     </td>
+    <?php endif; ?>
 
 </tr>
 

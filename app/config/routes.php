@@ -20,16 +20,16 @@ $router->get('/products', 'ProductController::index')
        ->middleware('AuthMiddleware');
 
 $router->get('/products/create', 'ProductController::create')
-       ->middleware('AuthMiddleware');
+       ->middleware('ManageProductsMiddleware');
 
 $router->post('/products/store', 'ProductController::store')
-       ->middleware('AuthMiddleware');
+       ->middleware('ManageProductsMiddleware');
 
 $router->get('/products/edit/{id}', 'ProductController::edit')
-       ->middleware('AuthMiddleware');
+       ->middleware('ManageProductsMiddleware');
 
 $router->post('/products/update/{id}', 'ProductController::update')
-       ->middleware('AuthMiddleware');
+       ->middleware('ManageProductsMiddleware');
 
 $router->get('/products/delete/{id}', 'ProductController::delete')
-       ->middleware('AuthMiddleware');
+       ->middleware('ManageProductsMiddleware');

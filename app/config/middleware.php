@@ -3,11 +3,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 require_once APP_DIR . 'middlewares/StudentMiddleware.php';
 require_once APP_DIR . 'middlewares/AuthMiddleware.php';
+require_once APP_DIR . 'middlewares/ManageProductsMiddleware.php';
 
 
 $config['middlewares'] = [
     'StudentMiddleware' => new StudentMiddleware(),
-    'AuthMiddleware' => new AuthMiddleware()
+    'AuthMiddleware' => new AuthMiddleware(),
+    'ManageProductsMiddleware' => new ManageProductsMiddleware()
 ];
 
 /**
@@ -51,11 +53,3 @@ $config['middlewares'] = [
 | Used for adding middlewares
 |
 */
-require_once APP_DIR . 'middlewares/StudentMiddleware.php';
-require_once APP_DIR . 'middlewares/AuthMiddleware.php';
-
-
-$config['middlewares'] = [
-    'StudentMiddleware' => new StudentMiddleware(),
-    'AuthMiddleware' => new AuthMiddleware()
-];

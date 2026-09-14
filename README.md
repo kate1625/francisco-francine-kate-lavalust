@@ -156,6 +156,15 @@ lavalust/
 
 ## Configuration
 
+### CRUD Laboratory Setup
+
+1. Create an Aiven MySQL service and database, then import `database/lavalust_crud.sql` using phpMyAdmin or the MySQL client.
+2. Copy `.env.example` to `.env` and set `DB_HOST`, `DB_PORT`, `DB_USERNAME`, `DB_PASSWORD`, and `DB_NAME` with your Aiven credentials.
+3. Start locally with `php -S localhost:8080 -t public public/index.php`.
+4. Open `/login` and use the seeded account `admin` / `admin123`, then manage products at `/products`.
+
+For Render, use the same start command and add the database variables under **Environment Variables**. Never commit `.env` or database passwords.
+
 ### Database
 
 **File:** `app/config/database.php`

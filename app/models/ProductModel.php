@@ -7,7 +7,9 @@ class ProductModel extends Model
 
     public function all()
     {
-        return $this->db->table('products')->get_all();
+        return $this->db->table('products')
+                        ->order_by('created_at', 'DESC')
+                        ->get_all();
     }
 
 
