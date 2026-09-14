@@ -79,6 +79,11 @@ textarea {
 
 <h2>Edit Product</h2>
 
+<?php if (!empty($_SESSION['product_error'])): ?>
+    <p style="color:#a33;" role="alert"><?= htmlspecialchars($_SESSION['product_error'], ENT_QUOTES, 'UTF-8') ?></p>
+    <?php unset($_SESSION['product_error']); ?>
+<?php endif; ?>
+
 
 <form method="POST" action="/products/update/<?= $product['id'] ?>">
 
@@ -107,6 +112,9 @@ textarea {
 
 <input type="number"
        name="price"
+    min="0"
+    max="99999999.99"
+    step="0.01"
        value="<?= $product['price'] ?>"
        required>
 
@@ -119,6 +127,9 @@ textarea {
 
 <input type="number"
        name="quantity"
+    min="0"
+    max="2147483647"
+    step="1"
        value="<?= $product['quantity'] ?>"
        required>
 
